@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Директории и файлы</title>
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../../css/style.css">
+<body>
+<div th:insert="~{site/header :: header}"/>
+<br>
+<h3>
+    Директории и файлы
+</h3>
+
+<form action="#" th:action="@{/addAddress}" th:object="${address}" method="POST">
+    <div class="divTable">
+        <div class="divTableBody">
+            <div class="divTableRow">
+                <div class="divTableCell">Новая директория</div>
+                <div class="divTableCel2"><input type="text" class="inputValue" th:field="*{baseDirectory}"></div>
+                <div class="divTableCel3"><input class="btn btn-success" type="submit" value="Добавить в список"></div>
+            </div>
+        </div>
+    </div>
+</form>
+<br><br>
+<h3>
+    Список Директорий и файлов
+</h3>
+<table class="table" border="1">
+    <tr class="tr1">
+        <th>№</th>
+        <th>Ид</th>
+        <th>Дата</th>
+        <th>Базовая директория</th>
+        <th>Директорий</th>
+        <th>Файлов</th>
+        <th>Суммарный размер файлов</th>
+        <th>Файлы</th>
+    </tr>
+    <tr class="tr1" th:each="address,iterStat : ${listAddress}">
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${address.getId()}"></td>
+        <td th:text="${address.getDate()}"></td>
+        <td th:text="${address.getBaseDirectory()}"></td>
+        <td th:text="${address.getDirCount()}"></td>
+        <td th:text="${address.getFileCount()}"></td>
+        <td th:text="${address.getSumSize()}"></td>
+
+        <td>
+            <form action="#" th:action="@{/showFiles}" method="post">
+                <input type="hidden" name="id" th:value="${address.getId()}">
+                <input class="btn btn-success" type="submit" value="Файлы">
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

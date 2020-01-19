@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Файлы</title>
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../../css/style.css">
+<body>
+<div th:insert="~{site/header :: header}"/>
+<br>
+<input class="btn btn-info" type="button" value="К списку директорий" onclick="window.location.href = '/address'">
+<br><br>
+<h3>
+    Список файлов
+</h3>
+<br>
+<table class="tableEdit2">
+    <tbody>
+    <tr>
+        <td class="tdName">Ид: </td>
+        <td class="tdValue"><input type="text" class="inputValue" readonly="readonly" th:name="id" th:value="${idAddress}"></td>
+    </tr>
+    <tr>
+        <td class="tdName">Наименование: </td>
+        <td class="tdValue"><input type="text" class="inputValue" readonly="readonly" th:name="name" th:value="${nameAddress}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table class="table" border="1">
+    <tr class="tr1">
+        <th>№</th>
+        <th>Ид</th>
+        <th>Файл</th>
+        <th>Размер</th>
+    </tr>
+    <tr class="tr1" th:each="file,iterStat : ${listFiles}">
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${file.getId()}"></td>
+        <td th:text="${file.getName()}"></td>
+        <td th:text="${file.getSize()}"></td>
+    </tr>
+</table>
+</body>
+</html>

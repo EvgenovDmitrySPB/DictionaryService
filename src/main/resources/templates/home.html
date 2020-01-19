@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Welcome!</h1>
+
+<p>Вы успешно авторизованы</p>
+<p>Click <a th:href="@{/index}">here</a> to see INDEX.HTML.</p>
+
+<a th:href="@{/index}"><img src="http://www.stickpng.com/assets/images/58aff1f0829958a978a4a6cf.png" alt="Тест"
+                            width="30%"/></a>
+
+</body>
+</html>
