@@ -1,5 +1,11 @@
 # Getting Started
 
+Стек протоколов:
+-spring boot
+-spring JPA
+- Hibernate
+- thymeleaf
+
 При старте нужно создать базу mysql
 Название базы 'Dictionary'
 
