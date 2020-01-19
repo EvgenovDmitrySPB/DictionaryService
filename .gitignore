@@ -1,6 +1,6 @@
-/target/*
-/.mvn/*
-/.idea/*
+target
+.mvn/
+.idea/
 
 ### STS ###
 .apt_generated
